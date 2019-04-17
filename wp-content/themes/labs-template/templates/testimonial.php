@@ -5,16 +5,16 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-4">
           <div class="section-title left">
-            <h2>What our clients say</h2>
+            <h2><?= get_theme_mod('setting-title-b', __('What our clients say'));?></h2>
           </div>
           <div class="owl-carousel" id="testimonial-slide">
             <!-- single testimonial -->
             <div class="testimonial">
               <span>‘​‌‘​‌</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+              <p><?=  get_theme_mod('setting-para-c',__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.')); ?></p>
               <div class="client-info">
                 <div class="avatar">
-                  <img src="img/avatar/01.jpg" alt="">
+                  <img src="<?= get_template_directory_uri(); ?>/img/avatar/01.jpg" alt="">
                 </div>
                 <div class="client-name">
                   <h2>Michael Smith</h2>
@@ -25,10 +25,10 @@
             <!-- single testimonial -->
             <div class="testimonial">
               <span>‘​‌‘​‌</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+              <p><?=  get_theme_mod('setting-para-d',__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.')); ?></p>
               <div class="client-info">
                 <div class="avatar">
-                  <img src="img/avatar/02.jpg" alt="">
+                  <img src="<?= get_template_directory_uri(); ?>/img/avatar/02.jpg" alt="">
                 </div>
                 <div class="client-name">
                   <h2>Michael Smith</h2>
@@ -39,10 +39,10 @@
             <!-- single testimonial -->
             <div class="testimonial">
               <span>‘​‌‘​‌</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+              <p><?=  get_theme_mod('setting-para-e',__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.')); ?></p>
               <div class="client-info">
                 <div class="avatar">
-                  <img src="img/avatar/01.jpg" alt="">
+                  <img src="<?= get_template_directory_uri(); ?>/img/avatar/01.jpg" alt="">
                 </div>
                 <div class="client-name">
                   <h2>Michael Smith</h2>
@@ -53,10 +53,10 @@
             <!-- single testimonial -->
             <div class="testimonial">
               <span>‘​‌‘​‌</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+              <p><?=  get_theme_mod('setting-para-f',__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.')); ?></p>
               <div class="client-info">
                 <div class="avatar">
-                  <img src="img/avatar/02.jpg" alt="">
+                  <img src="<?= get_template_directory_uri(); ?>/img/avatar/02.jpg" alt="">
                 </div>
                 <div class="client-name">
                   <h2>Michael Smith</h2>
@@ -67,10 +67,10 @@
             <!-- single testimonial -->
             <div class="testimonial">
               <span>‘​‌‘​‌</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+              <p><?=  get_theme_mod('setting-para-g',__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.')); ?></p>
               <div class="client-info">
                 <div class="avatar">
-                  <img src="img/avatar/01.jpg" alt="">
+                  <img src="<?= get_template_directory_uri(); ?>/img/avatar/01.jpg" alt="">
                 </div>
                 <div class="client-name">
                   <h2>Michael Smith</h2>
@@ -81,10 +81,10 @@
             <!-- single testimonial -->
             <div class="testimonial">
               <span>‘​‌‘​‌</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+              <p><?=  get_theme_mod('setting-para-h',__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.')); ?></p>
               <div class="client-info">
                 <div class="avatar">
-                  <img src="img/avatar/02.jpg" alt="">
+                  <img src="<?= get_template_directory_uri(); ?>/img/avatar/02.jpg" alt="">
                 </div>
                 <div class="client-name">
                   <h2>Michael Smith</h2>

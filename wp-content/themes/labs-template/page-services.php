@@ -2,16 +2,20 @@
 
 get_header();
 
-get_template_part('banner');
+get_template_part('templates/banner');
 
 ?>
-
 
   <!-- services section -->
   <div class="services-section spad">
     <div class="container">
       <div class="section-title dark">
-        <h2>Get in <span>the Lab</span> and see the services</h2>
+      <?php
+            $text = get_theme_mod('setting-title-c', __('Get in <span>the Lab</span> and see the services'));
+            $text = str_replace("[" , "<span>" ,$text);
+            $text = str_replace("]" , "</span>" ,$text);
+          ?>
+        <h2><?= $text; ?></h2>
       </div>
       <div class="row">
         <!-- single service -->
@@ -136,7 +140,12 @@ get_template_part('banner');
     <div class="overlay"></div>
     <div class="container">
       <div class="section-title">
-        <h2>Get in <span>the Lab</span> and discover the world</h2>
+      <?php
+            $text = get_theme_mod('setting-title-h', __('Get in <span>the Lab</span> and discover the world'));
+            $text = str_replace("[" , "<span>" ,$text);
+            $text = str_replace("]" , "</span>" ,$text);
+          ?>
+        <h2><?= $text; ?></h2>
       </div>
       <div class="row">
         <!-- feature item -->
@@ -174,7 +183,7 @@ get_template_part('banner');
         <!-- Devices -->
         <div class="col-md-4 col-sm-4 devices">
           <div class="text-center">
-            <img src="img/device.png" alt="">
+            <img src="<?= get_template_directory_uri(); ?>/img/device.png" alt="">
           </div>
         </div>
         <!-- feature item -->
@@ -226,7 +235,7 @@ get_template_part('banner');
         <div class="col-md-4 col-sm-6">
           <div class="sv-card">
             <div class="card-img">
-              <img src="img/card-1.jpg" alt="">
+              <img src="<?= get_template_directory_uri(); ?>/img/card-1.jpg" alt="">
             </div>
             <div class="card-text">
               <h2>Get in the lab</h2>
@@ -238,7 +247,7 @@ get_template_part('banner');
         <div class="col-md-4 col-sm-6">
           <div class="sv-card">
             <div class="card-img">
-              <img src="img/card-2.jpg" alt="">
+              <img src="<?= get_template_directory_uri(); ?>/img/card-2.jpg" alt="">
             </div>
             <div class="card-text">
               <h2>Projects online</h2>
@@ -250,7 +259,7 @@ get_template_part('banner');
         <div class="col-md-4 col-sm-12">
           <div class="sv-card">
             <div class="card-img">
-              <img src="img/card-3.jpg" alt="">
+              <img src="<?= get_template_directory_uri(); ?>/img/card-3.jpg" alt="">
             </div>
             <div class="card-text">
               <h2>SMART MARKETING</h2>
@@ -266,9 +275,9 @@ get_template_part('banner');
 
 <?php
 
-get_template_part('newsletter');
+get_template_part('templates/newsletter');
 
-get_template_part('contact-form');
+get_template_part('templates/contact-form');
 
 get_footer();
 

@@ -2,7 +2,12 @@
   <div class="services-section spad">
     <div class="container">
       <div class="section-title dark">
-        <h2>Get in <span>the Lab</span> and see the services</h2>
+      <?php
+            $text = get_theme_mod('setting-title-c', __('Get in <span>the Lab</span> and see the services'));
+            $text = str_replace("[" , "<span>" ,$text);
+            $text = str_replace("]" , "</span>" ,$text);
+          ?>
+        <h2><?= $text; ?></h2>
       </div>
       <div class="row">
         <!-- single service -->
@@ -115,7 +120,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="" class="site-btn">Browse</a>
+        <a href="services" class="site-btn"><?= get_theme_mod('setting-button-b',__('Browse')); ?></a>
       </div>
     </div>
   </div>

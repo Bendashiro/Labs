@@ -3,10 +3,10 @@
     <div class="overlay"></div>
     <div class="container text-right">
       <div class="page-info">
-        <h2>Services</h2>
+        <h2><?= get_the_title(); ?></h2>
         <div class="page-links">
-          <a href="#">Home</a>
-          <span>Services</span>
+          <a href="<?= get_home_url(); ?>">Home</a>
+          <span><?= get_the_title(); ?></span>
         </div>
       </div>
     </div>
