@@ -370,6 +370,182 @@ class Customizer
             'description'   => __('Personnalisez le texte du bouton'),
             'type'          => 'textarea'
         ]);
+
+        //Personnalisation du contenu visuel et audio-visuel
+        //Panel audio
+        $wp_customize->add_panel('panel-b', [
+            'title'         => __('Multimédia'),
+            'description'   => __('This panel give u acces to all customization about multimedia'),
+            'priority'      => 10,
+            'capability'    => 'edit_theme_options',
+            'theme_supports' => ''
+        ]);
+        //Image du prelpoader
+        $wp_customize->add_section('section-image-a', [
+            'panel'         => 'panel-b',
+            'title'         => __("Logo preloader"),
+            'description'   => __("Modifiez vos images à partir d'ici!")
+        ]);
+        $wp_customize->add_setting('setting-image-a', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'logo-preloader',
+                array(
+                    'label'      => __('Upload a logo', 'labs'),
+                    'section'    => 'section-image-a',
+                    'settings'   => 'setting-image-a'
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
+        //Icon de navigation
+        $wp_customize->add_section('section-image-b', [
+            'panel'         => 'panel-b',
+            'title'         => __("Logo"),
+            'description'   => __("Modifiez vos images à partir d'ici!")
+        ]);
+        $wp_customize->add_setting('setting-image-b', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'logo',
+                array(
+                    'label'      => __('Upload a logo', 'labs'),
+                    'section'    => 'section-image-b',
+                    'settings'   => 'setting-image-b',
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
+
+        //Logo grand format
+        $wp_customize->add_section('section-image-e', [
+            'panel'         => 'panel-b',
+            'title'         => __("Logo Grand Format"),
+            'description'   => __("Modifiez vos images à partir d'ici!")
+        ]);
+        $wp_customize->add_setting('setting-image-e', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'big-logo',
+                array(
+                    'label'      => __('Upload a logo grand format', 'labs'),
+                    'section'    => 'section-image-e',
+                    'settings'   => 'setting-image-e',
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
+
+        //Caroussel
+        //1ère images
+        $wp_customize->add_section('section-image-c', [
+            'panel'         => 'panel-b',
+            'title'         => __("Caroussel"),
+            'description'   => __("Modifiez vos images à partir d'ici!")
+        ]);
+        $wp_customize->add_setting('setting-image-c', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'img-carou',
+                array(
+                    'label'      => __('Upload dans le carrousel en première', 'labs'),
+                    'section'    => 'section-image-c',
+                    'settings'   => 'setting-image-c',
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
+        //2ère images
+        $wp_customize->add_setting('setting-image-d', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'img-carou-b',
+                array(
+                    'label'      => __('Upload dans le caroussel en seconde position', 'labs'),
+                    'section'    => 'section-image-c',
+                    'settings'   => 'setting-image-d',
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
+        //Device change
+        $wp_customize->add_section('section-image-f', [
+            'panel'         => 'panel-b',
+            'title'         => __("Project:Device"),
+            'description'   => __("Modifiez vos images à partir d'ici!")
+        ]);
+        $wp_customize->add_setting('setting-image-f', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'img-device',
+                array(
+                    'label'      => __('Upload dans la partie projet', 'labs'),
+                    'section'    => 'section-image-f',
+                    'settings'   => 'setting-image-f',
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
+
+
+        //Paramètrage video
+
+        $wp_customize->add_section('section-video-a', [
+            'panel'         => 'panel-b',
+            'title'         => __("Video"),
+            'description'   => __("Modifiez vos videos à partir d'ici!")
+        ]);
+        $wp_customize->add_setting('setting-video-a', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'img-video',
+                array(
+                    'label'      => __("Upload dans l'image link de la video", 'labs'),
+                    'section'    => 'section-video-a',
+                    'settings'   => 'setting-video-a',
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
+        $wp_customize->add_setting('setting-video-b', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control('control-video-a', [
+            'section'       => 'section-video-a',
+            'settings'      => 'setting-video-b',
+            'label'         => __("URL de votre video"),
+            'description'   => __("Entrez l'URL de la page internet de la video de votre choix,ne la téléchargez pas cela rendrait les choses plus chère!!!"),
+            'type'          => 'url'
+        ]);
     }
 }
 add_action('customize_register', [Customizer::class, 'add_customization']);

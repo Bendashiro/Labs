@@ -67,8 +67,8 @@
         <div class="intro-video">
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
-              <img src="<?= get_template_directory_uri(); ?>/img/video.jpg" alt="">
-              <a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+              <img src="<?= get_theme_mod('setting-video-a'); ?>" alt="">
+              <a href="<?= get_theme_mod('setting-video-b','https://www.youtube.com/watch?v=BMAa4ZWFh6E'); ?>" class="video-popup">
                 <i class="fa fa-play"></i>
               </a>
             </div>

@@ -183,7 +183,7 @@ get_template_part('templates/banner');
         <!-- Devices -->
         <div class="col-md-4 col-sm-4 devices">
           <div class="text-center">
-            <img src="<?= get_template_directory_uri(); ?>/img/device.png" alt="">
+            <img src="<?= get_theme_mod('setting-image-f'); ?>" alt="">
           </div>
         </div>
         <!-- feature item -->
@@ -220,7 +220,7 @@ get_template_part('templates/banner');
         </div>
       </div>
       <div class="text-center mt100">
-        <a href="" class="site-btn">Browse</a>
+        <a href="" class="site-btn"><?= get_theme_mod('setting-button-e', __('Browse')); ?></a>
       </div>
     </div>
   </div>

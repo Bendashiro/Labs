@@ -23,7 +23,7 @@
   <!-- Page Preloder -->
   <div id="preloder">
     <div class="loader">
-      <img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt="">
+      <img src="<?= get_theme_mod('setting-image-a'); ?>" alt="">
       <h2>Loading.....</h2>
     </div>
   </div>
@@ -32,7 +32,7 @@
   <!-- Header section -->
   <header class="header-section">
     <div class="logo">
-      <img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt=""><!-- Logo -->
+      <img src="<?= get_theme_mod('setting-image-b')?>"alt=""><!-- Logo -->
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
