@@ -1,16 +1,18 @@
 <?php
+
 namespace App\Features\Taxonomies;
 
-use App\Features\PostTypes\ServicesPostTypes;
+use App\Features\PostTypes\ProjectsPostTypes;
 
-class ServicesTaxonomy
+class ProjectsTaxonomy
 {
     public static $slug = 'recipe_taxonomy';
+
     public static function register()
     {
         $labels = [
-            'name' => __('Type de services'),
-            'singular_name' => __('Type de services')
+            'name' => __('Type de Projects'),
+            'singular_name' => __('Type de Projects')
         ];
         $args = [
             'labels' => $labels,
@@ -19,6 +21,6 @@ class ServicesTaxonomy
             'show_in_menu' => true,
             'show_admin_column' => true
         ];
-        register_taxonomy(self::$slug, [ServicesPostTypes::$slug], $args);
+        register_taxonomy(self::$slug, [ProjectsPostTypes::$slug], $args);
     }
 }

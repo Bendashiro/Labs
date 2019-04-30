@@ -2,21 +2,21 @@
 
 namespace App\Features\MetaBoxes;
 
-use App\Features\PostTypes\ServicesPostTypes;
+use App\Features\PostTypes\ProjectsPostTypes;
 
-class ServiceDetailsMetabox
+class ProjectDetailsMetabox
 {
-    public static $slug = 'services_details_metabox';
+    public static $slug = 'project_details_metabox';
     /**
      * Ajout d'une meta box au type de contenu qui sont passé dans le tableau $screens
      * @return void
      */
     public static function add_meta_box()
     {
-        $screen = [ServicesPostTypes::$slug];
+        $screen = [ProjectsPostTypes::$slug];
         add_meta_box(
             self::$slug,                //Unique ID
-            __('Details des Services'), //Box title
+            __('Details des Projects'), //Box title
             [self::class, 'render'],    //Content callback,must be of type callable
             $screen                     //Post Type
         );
@@ -37,7 +37,7 @@ class ServiceDetailsMetabox
         // echo get_post_meta(get_the_ID(), 'key_selected_icon', true);
         /* TEST */
 
-        view('metaboxes/services-detail', compact('icon'));
+        view('metaboxes/projects-detail', compact('icon'));
     }
 
     public static function save($post_id)

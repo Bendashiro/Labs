@@ -22,4 +22,4 @@ class EnqueueScript
     }
 }
 //$enqueue_script = new EnqueueScript;//instance
-add_action('wp_enqueue_scripts', [EnqueueScript::ajout_css_js()]);
+add_action('wp_enqueue_scripts', [EnqueueScript::class, 'ajout_css_js']);

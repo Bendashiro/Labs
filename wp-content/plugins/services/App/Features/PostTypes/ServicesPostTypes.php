@@ -12,6 +12,7 @@ class ServicesPostTypes
     public static $slug = 'services';
     public static function register()
     {
+        add_theme_support('post-thumbnails');
         register_post_type(
             // on remplace le slug qui était écrit en dur 'recipe' par la variable, on fait cela car à notre function register_post_type par son identifiant à plusieurs endroits, si jamais on décide de changer l'identifiant qui est 'services' par 'carotte' bah il faudra le changer a de nombreux endroit si on laisse cela en dur c'est pour cela qu'on à choisis de créer une variable, on change la valeur de la variable et tout lesendroits ou son identifiant est utilisé sera mis à jours.
             self::$slug,
@@ -22,7 +23,7 @@ class ServicesPostTypes
                     'add_new' => __('Ajouter'),
                     'add_new_item' => __('Ajouter une service'),
                     'edit_item' => __('Modifier la service'),
-                    'new_item' => __('Nouvelle service'),
+                    'new_item' => __('Nouveau service'),
                     'view_item' => __('Voir la service'),
                     'view_items' => __('Voir les services'),
                     'search_items' => __('Rechercher des services'),
@@ -38,7 +39,6 @@ class ServicesPostTypes
                     'item_reverted_to_draft' => __('La service est retournée au brouillon.'),
                     'item_scheduled' => __('Service planifiée.'),
                     'item_updated' => __('Service mise à jours.'),
-
                 ],
                 'public' => true,
                 'has_archive' => true,

@@ -1,0 +1,25 @@
+#icon i:hover::before{
+    transition: all 1s;
+    /* transform: scale(1.9); */
+    font-size: 50px;
+    color: black;
+    box-sizing: border-box;
+    overflow-y: unset;
+}
+
+#icon {
+    overflow: scroll;
+    height: 250px;
+    text-align: center;
+    margin: 1rem;
+}
+
+#icon i{
+    color: black;
+    transform: scale(1.9);
+    font-size: 15px;
+    margin: 1rem;
+}
+.icon-content {
+    margin: 2rem;
+}
