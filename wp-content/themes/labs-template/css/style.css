@@ -718,6 +718,12 @@ ul {
 	font-weight: 400;
 	text-transform: uppercase;
 }
+.member p {
+	font-size: 14px;
+	color: #2be6ab;
+	font-weight: 400;
+	text-transform: uppercase;
+}
 
 
 /*------------------------
@@ -1130,7 +1136,9 @@ ul {
 	background: #2be6ab;
 	border-radius: 10px;
 }
-
+.services-section span{
+	background: #2be6ab;
+}
 .page-pagination a {
 	display: inline-block;
 	font-family: "Oswald", sans-serif;
@@ -1144,6 +1152,9 @@ ul {
 	background: #2be6ab;
 }
 
+.page-pagination span.active {
+	background: #2be6ab;
+}
 /* Sidebar */
 .widget-item {
 	margin-bottom: 60px;

@@ -19,10 +19,12 @@ get_template_part('templates/banner');
     </div>
     <div class="row">
       <?php
+      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $args = array(
         'post_type' => 'Services',
         'orderby' => 'rand',
         'posts_per_page' => '9',
+        'paged' => $paged
       );
       $query = new WP_Query($args);
       while ($query->have_posts()) : $query->the_post();
@@ -42,6 +44,28 @@ get_template_part('templates/banner');
         <!-- services section end -->
       <?php
     endwhile;
+    $total_pages = $query->max_num_pages;
+    if ($total_pages > 1) {
+      $current_page = max(1, get_query_var('paged'));
+      echo paginate_links([
+        'base' => get_pagenum_link(1) . '%_%',
+        'format' => '/page/%#%',
+        // 'format' => '?paged=%#%',
+        'current' => $current_page,
+        'total' => $total_pages,
+        'prev_text' => __('« Previous' . '<br>'),
+        'next_text' => __('<br>' . 'Next »'),
+        'show_all'           => false,
+        'end_size'           => 1,
+        'mid_size'           => 2,
+        'prev_next'          => true,
+        'type'               => 'plain',
+        'add_args'           => false,
+        'add_fragment'       => '',
+        'before_page_number' => '',
+        'after_page_number'  => ''
+      ]);
+    }
     wp_reset_postdata();
     ?>
     </div>
@@ -85,7 +109,7 @@ get_template_part('templates/banner');
           </div>
         <?php
       endwhile;
-      wp_reset_query();
+      wp_reset_postdata();
       ?>
       </div>
       <!-- Devices -->
@@ -117,7 +141,7 @@ get_template_part('templates/banner');
           </div>
         <?php
       endwhile;
-      wp_reset_query();
+      wp_reset_postdata();
       ?>
       </div>
     </div>
@@ -140,24 +164,24 @@ get_template_part('templates/banner');
         'posts_per_page' => '3',
       ];
       $queryD = new WP_Query($args);
-      while($queryD->have_posts()) : $queryD->the_post();
-      ?>
-      <!-- Single Card -->
-      <div class="col-md-4 col-sm-6">
-        <div class="sv-card">
-          <div class="card-img">
-            <img src="<?= the_post_thumbnail(); ?>" alt="">
-          </div>
-          <div class="card-text">
-            <h2><?php the_title(); ?></h2>
-            <p><?php the_content(); ?></p>
+      while ($queryD->have_posts()) : $queryD->the_post();
+        ?>
+        <!-- Single Card -->
+        <div class="col-md-4 col-sm-6">
+          <div class="sv-card">
+            <div class="card-img">
+              <img src="<?= the_post_thumbnail(); ?>" alt="">
+            </div>
+            <div class="card-text">
+              <h2><?php the_title(); ?></h2>
+              <p><?php the_content(); ?></p>
+            </div>
           </div>
         </div>
-      </div>
       <?php
-      endwhile;
-      wp_reset_query();
-      ?>
+    endwhile;
+    wp_reset_postdata();
+    ?>
     </div>
   </div>
 </div>

@@ -30,7 +30,7 @@ class ProjectDetailsMetabox
     {
 
         $data = get_post_meta(get_the_ID() , 'key_selected_icon');
-        $icon = $data[0];
+        // $icon = $data[0];
         //echo get_post_meta(get_the_ID() , 'selected_icon' , true);
         // extract_data_attr('selected_icon',$data);
         /* TEST */
