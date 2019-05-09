@@ -546,6 +546,30 @@ class Customizer
             'description'   => __("Entrez l'URL de la page internet de la video de votre choix,ne la téléchargez pas cela rendrait les choses plus chère!!!"),
             'type'          => 'url'
         ]);
+        //Création d'un panel map
+        $wp_customize->add_panel('panel-c', [
+            'priority'       => 10,
+            'capability'     => 'edit_theme_options',
+            'theme_supports' => '',
+            'title'          => __('Map'),
+            'description'    => __('This panel give u acces to all customization about the map')
+        ]);
+        $wp_customize->add_section('section-map', [
+            'panel'         => 'panel-c',
+            'title'         => __("Adresse"),
+            'description'   => __("Modifiez l'adresse que vous voulez")
+        ]);
+        $wp_customize->add_setting('setting-map', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control('control-para-b', [
+            'section'       => 'section-map',
+            'settings'      => 'setting-map',
+            'label'         => __("Entrez l'adresse recherché"),
+            // 'description'   => __('Personnalisez le texte du paragraphe'),
+            'type'          => 'textarea'
+        ]);
     }
 }
 add_action('customize_register', [Customizer::class, 'add_customization']);

@@ -5,7 +5,7 @@ use App\Features\PostTypes\ServicesPostTypes;
 
 class ServicesTaxonomy
 {
-    public static $slug = 'recipe_taxonomy';
+    public static $slug = 'services_taxonomy';
     public static function register()
     {
         $labels = [

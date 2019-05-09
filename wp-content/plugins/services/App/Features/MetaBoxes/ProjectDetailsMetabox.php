@@ -29,10 +29,9 @@ class ProjectDetailsMetabox
     public static function render()
     {
 
-        $data = get_post_meta(get_the_ID() , 'key_selected_icon');
-        // $icon = $data[0];
-        //echo get_post_meta(get_the_ID() , 'selected_icon' , true);
-        // extract_data_attr('selected_icon',$data);
+        $data = get_post_meta(get_the_ID() , 'key_selected_icon_projects');
+        $icon = $data[0];
+        // extract_data_attr('test', $data);
         /* TEST */
         // echo get_post_meta(get_the_ID(), 'key_selected_icon', true);
         /* TEST */
@@ -49,7 +48,7 @@ class ProjectDetailsMetabox
             $data = $_POST['test'];
             //$blabla = $_POST['selected_icon'];
             // J'utilise le helper update_post_metas que j'ai créer dans le fichier helpers.php, je passe deux variables, $post_id qui contient l'id du post , et $data qui contient un tableau de données récupéré
-            update_post_metas($post_id, ['key_selected_icon' => $data]);
+            update_post_metas($post_id, ['key_selected_icon_projects' => $data]);
         }
     }
 }

@@ -34,7 +34,7 @@
         <?php endwhile; ?>
       </div>
       <div class="text-center">
-        <a href="services" class="site-btn"><?= get_theme_mod('setting-button-b', __('Browse')); ?></a>
+        <a href="?page_id=5" class="site-btn"><?= get_theme_mod('setting-button-b', __('Browse')); ?></a>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ use App\Features\PostTypes\ProjectsPostTypes;
 
 class ProjectsTaxonomy
 {
-    public static $slug = 'recipe_taxonomy';
+    public static $slug = 'project_taxonomy';
 
     public static function register()
     {

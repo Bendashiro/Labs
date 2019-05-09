@@ -17,3 +17,10 @@
  require_once('autoload.php');
 
  require_once('init.php');
+ 
+
+ $roleadmin = get_role('administrator');
+ $roleeditor = get_role('editor');
+ $adminCapa = get_role('administrator')->capabilities;
+ $editorCapa = get_role('editor')->capabilities;
+ 

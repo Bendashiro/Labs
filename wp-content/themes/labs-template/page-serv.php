@@ -17,18 +17,21 @@ get_template_part('templates/banner');
       ?>
       <h2><?= $text; ?></h2>
     </div>
-    <div class="row">
-      <?php
-      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-      $args = array(
-        'post_type' => 'Services',
-        'orderby' => 'rand',
-        'posts_per_page' => '9',
-        'paged' => $paged
-      );
-      $query = new WP_Query($args);
-      while ($query->have_posts()) : $query->the_post();
-        ?>
+    <!-- <div class="row"> -->
+    <?php
+    $args = array(
+      'post_type' => 'Services',
+      'orderby' => 'rand',
+      'posts_per_page' => 9,
+      'paged' => $paged
+    );
+    $count = 0;
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $query = new WP_Query($args);
+    while ($query->have_posts()) : $query->the_post();
+      if ($count % 3 === 0) : ?>
+        <div class="row">
+        <?php endif; ?>
         <!-- single service -->
         <div class="col-md-4 col-sm-6">
           <div class="service">
@@ -42,32 +45,25 @@ get_template_part('templates/banner');
           </div>
         </div>
         <!-- services section end -->
+        <?php if ($count % 3 === 2) : ?>
+        </div>
+      <?php endif;
+    $count++
+    ?>
+    <?php endwhile; ?>
+    <div class="page-pagination">
+      <!-- </div> -->
       <?php
-    endwhile;
-    $total_pages = $query->max_num_pages;
-    if ($total_pages > 1) {
       $current_page = max(1, get_query_var('paged'));
       echo paginate_links([
-        'base' => get_pagenum_link(1) . '%_%',
-        'format' => '/page/%#%',
-        // 'format' => '?paged=%#%',
-        'current' => $current_page,
-        'total' => $total_pages,
-        'prev_text' => __('« Previous' . '<br>'),
-        'next_text' => __('<br>' . 'Next »'),
-        'show_all'           => false,
-        'end_size'           => 1,
-        'mid_size'           => 2,
-        'prev_next'          => true,
-        'type'               => 'plain',
-        'add_args'           => false,
-        'add_fragment'       => '',
-        'before_page_number' => '',
-        'after_page_number'  => ''
+        'format' => 'page/%#%',
+        'current' => $paged,
+        'total' => $query->max_num_pages,
+        'prev_text' => __('« Précédent' . '<br>'),
+        'next_text' => __('<br>' . 'Suivant »'),
       ]);
-    }
-    wp_reset_postdata();
-    ?>
+      // wp_reset_postdata();
+      ?>
     </div>
   </div>
 </div>
@@ -92,7 +88,6 @@ get_template_part('templates/banner');
           'post_type' => 'Projects',
           'orderby' => 'rand',
           'posts_per_page' => '3',
-          'category_name' => 'left'
         ];
         $queryB = new WP_Query($args);
         while ($queryB->have_posts()) : $queryB->the_post();
@@ -124,7 +119,6 @@ get_template_part('templates/banner');
           'post_type' => 'Projects',
           'orderby' => 'rand',
           'posts_per_page' => '3',
-          'category_name' => 'right'
         ];
         $queryC = new WP_Query($args);
         while ($queryC->have_posts()) : $queryC->the_post();
@@ -146,7 +140,7 @@ get_template_part('templates/banner');
       </div>
     </div>
     <div class="text-center mt100">
-      <a href="" class="site-btn"><?= get_theme_mod('setting-button-e', __('Browse')); ?></a>
+      <a href="#rien" class="site-btn"><?= get_theme_mod('setting-button-e', __('Browse')); ?></a>
     </div>
   </div>
 </div>
@@ -154,7 +148,7 @@ get_template_part('templates/banner');
 
 
 <!-- services card section-->
-<div class="services-card-section spad">
+<div class="services-card-section spad" id="rien">
   <div class="container">
     <div class="row">
       <?php

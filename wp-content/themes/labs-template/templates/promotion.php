@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-3">
           <div class="promo-btn-area">
-            <a href="blog" class="site-btn btn-2"><?= get_theme_mod('setting-button-c',__('Browse')); ?></a>
+            <a href="?page_id=20" class="site-btn btn-2"><?= get_theme_mod('setting-button-c',__('Browse')); ?></a>
           </div>
         </div>
       </div>

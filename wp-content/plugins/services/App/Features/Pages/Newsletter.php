@@ -2,6 +2,8 @@
 
 namespace App\Features\Pages;
 
+use App\Http\Models\News;
+
 class Newsletter
 {
     public static function init()
@@ -13,13 +15,12 @@ class Newsletter
             'news-client',
             [self::class, 'render'],
             'dashicons-email',
-            30
+            27
         );
     }
-    public static function send_news()
+    public static function render()
     {
-        echo "<h1> Verifier vos news client</h1>";
-        $new = array_reverse(News::all());
+        $news = array_reverse(News::all());
         view('pages/news-inbox', compact('news'));
     }
 }

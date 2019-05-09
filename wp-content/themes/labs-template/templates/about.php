@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="text-center mt60">
-            <a href="blog" class="site-btn"><?= get_theme_mod('setting-button-a', __('Browse')); ?></a>
+            <a href="?page_id=5" class="site-btn"><?= get_theme_mod('setting-button-a', __('Browse')); ?></a>
           </div>
           <!-- popup video -->
           <div class="intro-video">

@@ -15,19 +15,19 @@ class NewsController
         };
 
         // Maintenant à chaque fois qu'il y a une tentatve réussie ou raté d'envoie de mail,on lance la methode 'validation'
-        Request::validation([
-            'email' => 'email',
+        Request::validationNews([
+            'email2' => 'email',
         ]);
         // Nous récupérons les données envoyé par le formulaire qui se retrouve dans la variable $_POST
-        $email = sanitize_email($_POST['email']);
+        $email = sanitize_email($_POST['email2']);
         //sI LE MAIL EST BIEN ENVOYÉ STATUS = 'SUCCES' SINON 'ERROR'
         if (wp_mail('hich1997@hotmail.com', '' , $email)) {
-            $_SESSION['notice'] = [
+            $_SESSION['noticeN'] = [
                 'status' => 'success',
                 'message' => 'Votre e-mail a bien été envoyé'
             ];
             //Si le mail est envoyé supprime les valeur des inputs
-            // unset($_SESSION['old']);
+            unset($_SESSION['old']);
             //Sauvegarde des mails dans la base de données
             $new = new News();
             $new->userid = get_current_user_id();
@@ -35,8 +35,8 @@ class NewsController
             //Sauvegarde
             $new->save();
         } else {
-            $_SESSION['notice'] = [
-                'status' => 'error',
+            $_SESSION['noticeN'] = [
+                'status' => 'danger',
                 'message' => 'Une erreur est survenue, veuillez vous corriger'
             ];
         }

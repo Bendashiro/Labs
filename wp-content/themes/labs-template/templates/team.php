@@ -15,7 +15,8 @@
         $args = [
           'post_type' => 'Team',
           'posts_per_page' => '1',
-          'orderby' => 'rand'
+          'orderby' => 'rand',
+          'taxonomy' => 'autre'
         ];
         $queryE = new WP_Query($args);
         while($queryE->have_posts()) : $queryE->the_post();
@@ -44,7 +45,8 @@
         $args = [
           'post_type' => 'Team',
           'posts_per_page' => '1',
-          'orderby' => 'rand'
+          'orderby' => 'rand',
+          'taxonomy' => 'autre'
         ];
         $queryF = new WP_Query($args);
         while($queryF->have_posts()) : $queryF->the_post();

@@ -29,25 +29,26 @@
             $status = $_SESSION['notice']['status'];
             $message = $_SESSION['notice']['message'];
             ?>
-            <div class="notice notice-<?= $status; ?> is-dismissible">
+            <div class="alert alert-<?= $status; ?> is-dismissible">
               <p><?= $message; ?></p>
             </div>
             <?php
             unset($_SESSION['notice']);
           endif;
           ?>
-          <form action="<?= get_admin_url() . '?action=send-mail'; ?>#contact" method="post" class="form-class" id="con_form">
+          <form action="<?= admin_url('admin-post.php'); ?>#contact" method="post" class="form-class" id="con_form">
             <?php wp_nonce_field('send-mail'); ?>
+            <input type="hidden" name="action" value="send-mail">
             <div class="row">
               <div class="col-sm-6">
-                <input type="text" name="name" placeholder="Your name" value="<?= isset($old['name']) ? $old['name'] : '' ?>">
+                <input type="text" name="name" placeholder="Your name" value="<?= $_SESSION['old']['name'];?>">
               </div>
               <div class="col-sm-6">
-                <input type="text" name="email" placeholder="Your email" value="<?= isset($old['email']) ? $old['email'] : '' ?>">
+                <input type="text" name="email" placeholder="Your email" value="<?= $_SESSION['old']['email'];?>">
               </div>
               <div class="col-sm-12">
-                <input type="text" name="subjects" placeholder="Subject" value="<?= isset($old['subjects']) ? $old['subjects'] : '' ?>">
-                <textarea name="message" placeholder="Message"></textarea>
+                <input type="text" name="subjects" placeholder="Subject" value="<?= $_SESSION['old']['subjects'];?>">
+                <textarea name="message" placeholder="Message"><?= $_SESSION['old']['message'];?></textarea>
                 <button class="site-btn">send</button>
               </div>
             </div>

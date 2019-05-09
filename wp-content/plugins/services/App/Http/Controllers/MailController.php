@@ -33,7 +33,7 @@ class MailController
                 'message' => 'Votre e-mail a bien été envoyé'
             ];
             //Si le mail est envoyé supprime les valeur des inputs
-            // unset($_SESSION['old']);
+            unset($_SESSION['old']);
             //Sauvegarde des mails dans la base de données
             $mail = new Mail();
             $mail->userid = get_current_user_id();
@@ -45,11 +45,20 @@ class MailController
             $mail->save();
         } else {
             $_SESSION['notice'] = [
-                'status' => 'error',
+                'status' => 'danger',
                 'message' => 'Une erreur est survenue, veuillez vous corriger'
             ];
         }
         wp_safe_redirect(wp_get_referer());
+    }
+    public static function check()
+    {
+        echo "<h1> Verifier vos mails client</h1>";
+        if (isset($_SESSION['old'])) {
+            $old = $_SESSION['old'];
+            unset($_SESSION['old']);
+        }
+        compact('old');
     }
     public static function delete()
     {
@@ -62,7 +71,7 @@ class MailController
             wp_safe_redirect(menu_page_url('mail-client'));
         } else {
             $_SESSION['notice'] = [
-                'status' => 'error',
+                'status' => 'danger',
                 'message' => 'un Problème est survenu,veuillez réésayer'
             ];
             wp_safe_redirect(wp_get_referer());
