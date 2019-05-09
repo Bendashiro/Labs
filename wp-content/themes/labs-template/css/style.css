@@ -20,6 +20,10 @@ body {
 img {
 	max-width: 100%;
 }
+.team-section img {
+	height: 448px;
+	width: 360px;
+}
 
 h1,
 h2,
@@ -1148,7 +1152,7 @@ ul {
 	margin-right: 5px;
 }
 
-.page-pagination span.active {
+.page-pagination span {
 	background: #2be6ab;
 	font-family: "Oswald", sans-serif;
 	font-size: 16px;

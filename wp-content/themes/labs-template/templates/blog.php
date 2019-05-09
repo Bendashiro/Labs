@@ -2,7 +2,7 @@
 
 $args = [
 	'post_type' => 'post',
-	'posts_per_page' => '9',
+	'posts_per_page' => '3',
 ];
 
 $query = new WP_Query($args); ?>
@@ -45,11 +45,9 @@ $query = new WP_Query($args); ?>
 					</div>
 				<?php
 			endwhile;
-
 			?>
-			</div>
-			<?php
-
+			<div class="page-pagination">
+				<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 			$total_pages = $query->max_num_pages;
@@ -77,7 +75,8 @@ $query = new WP_Query($args); ?>
 			wp_reset_postdata();
 
 			?>
-
+			</div>
+			</div>
 			<?php dynamic_sidebar('blog-sidebar') ?>
 		</div>
 	</div>

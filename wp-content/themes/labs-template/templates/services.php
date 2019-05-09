@@ -9,8 +9,7 @@
         ?>
         <h2><?= $text; ?></h2>
       </div>
-      <div class="row">
-        <?php
+      <?php
         $args = [
           'post_type' => 'Services',
           'orderby' => 'rand',
@@ -18,7 +17,10 @@
         ];
         $queryA = new WP_Query($args);
         while ($queryA->have_posts()) : $queryA->the_post();
-          ?>
+        ?>
+        <?php if($count % 3 == 2) : ?>
+        <div class="row">
+        <?php endif ?>
           <!-- single service -->
           <div class="col-md-4 col-sm-6">
             <div class="service">

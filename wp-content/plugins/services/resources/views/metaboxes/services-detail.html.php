@@ -1,4 +1,4 @@
-<input id="iconValue" type="hidden" name="test" value="<?= $icon ?>">
+<input id="iconValue" type="hidden" name="ser-icon" value="<?= $icon ?>">
 <table class="form-table">
     <h2>Selection d'une icone</h2>
     <div id="icon" class="row">

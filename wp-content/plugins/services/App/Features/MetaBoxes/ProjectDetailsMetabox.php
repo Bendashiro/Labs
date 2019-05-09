@@ -45,7 +45,7 @@ class ProjectDetailsMetabox
     
         if (count($_POST) != 0) {
             // Je créer un tableau dans lequel je stock les données récupéré par ma requête auxquelles j'assigne des clefs
-            $data = $_POST['test'];
+            $data = $_POST['project-icon'];
             //$blabla = $_POST['selected_icon'];
             // J'utilise le helper update_post_metas que j'ai créer dans le fichier helpers.php, je passe deux variables, $post_id qui contient l'id du post , et $data qui contient un tableau de données récupéré
             update_post_metas($post_id, ['key_selected_icon_projects' => $data]);
