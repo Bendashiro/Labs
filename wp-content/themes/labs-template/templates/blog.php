@@ -3,10 +3,13 @@
 $args = [
 	'post_type' => 'post',
 	'posts_per_page' => '3',
+	'paged' => $paged,
+	'order' => 'ASC'
 ];
 
-$query = new WP_Query($args); ?>
-
+$query = new WP_Query($args);
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+?>
 <div class="page-section spad">
 	<div class="container">
 		<div class="row">
@@ -46,38 +49,25 @@ $query = new WP_Query($args); ?>
 				<?php
 			endwhile;
 			?>
-			<div class="page-pagination">
-				<?php
-			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				<div class="page-pagination">
+					<?php
 
-			$total_pages = $query->max_num_pages;
-			if ($total_pages > 1) {
-				$current_page = max(1, get_query_var('paged'));
-				echo paginate_links([
-					'base' => get_pagenum_link(1) . '%_%',
-					'format' => '/page/%#%',
-					// 'format' => '?paged=%#%',
-					'current' => $current_page,
-					'total' => $total_pages,
-					'prev_text' => __('« Previous' . '<br>'),
-					'next_text' => __('<br>' . 'Next »'),
-					'show_all'           => false,
-					'end_size'           => 1,
-					'mid_size'           => 2,
-					'prev_next'          => true,
-					'type'               => 'plain',
-					'add_args'           => false,
-					'add_fragment'       => '',
-					'before_page_number' => '',
-					'after_page_number'  => ''
-				]);
-			}
-			wp_reset_postdata();
+					$current_page = max(1, get_query_var('paged'));
+					echo paginate_links([
+						'format' => 'page/%#%',
+						'current' => $paged,
+						'total' => $query->max_num_pages,
+						'prev_text' => __('« Précédent' . '<br>'),
+						'next_text' => __('<br>' . 'Suivant »'),
+					]);
+					wp_reset_postdata();
 
-			?>
+					?>
+				</div>
 			</div>
+			<div class="col-md-4 col-sm-5 sidebar">
+				<?php dynamic_sidebar('blog-sidebar') ?>
 			</div>
-			<?php dynamic_sidebar('blog-sidebar') ?>
 		</div>
 	</div>
 </div>

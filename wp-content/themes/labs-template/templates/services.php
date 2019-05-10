@@ -10,17 +10,18 @@
         <h2><?= $text; ?></h2>
       </div>
       <?php
-        $args = [
-          'post_type' => 'Services',
-          'orderby' => 'rand',
-          'posts_per_page' => '9',
-        ];
-        $queryA = new WP_Query($args);
-        while ($queryA->have_posts()) : $queryA->the_post();
+      $args = [
+        'post_type' => 'Services',
+        'orderby' => 'rand',
+        'posts_per_page' => '9',
+      ];
+      $queryA = new WP_Query($args);
+      $count = 0;
+      while ($queryA->have_posts()) : $queryA->the_post();
         ?>
-        <?php if($count % 3 == 2) : ?>
-        <div class="row">
-        <?php endif ?>
+        <?php if ($count % 3 == 2) : ?>
+          <div class="row">
+          <?php endif ?>
           <!-- single service -->
           <div class="col-md-4 col-sm-6">
             <div class="service">
@@ -33,11 +34,17 @@
               </div>
             </div>
           </div>
-        <?php endwhile; ?>
-      </div>
-      <div class="text-center">
-        <a href="?page_id=5" class="site-btn"><?= get_theme_mod('setting-button-b', __('Browse')); ?></a>
-      </div>
+          <?php if ($count % 3 === 2) : ?>
+          </div>
+        <?php
+      endif;
+      $count++;
+    endwhile;
+    ?>
     </div>
+    <div class="text-center">
+      <a href="?page_id=5" class="site-btn"><?= get_theme_mod('setting-button-b', __('Browse')); ?></a>
+    </div>
+  </div>
   </div>
   <!-- services section end -->

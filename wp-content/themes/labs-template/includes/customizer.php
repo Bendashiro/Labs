@@ -570,6 +570,57 @@ class Customizer
             // 'description'   => __('Personnalisez le texte du paragraphe'),
             'type'          => 'textarea'
         ]);
+        //Customizer de team leader
+        $wp_customize->add_panel('panel-d', [
+            'priority'       => 1,
+            'capability'     => 'edit_theme_options',
+            'theme_supports' => '',
+            'title'          => __('Team'),
+            'description'    => __('This panel give u acces to all customization about the team')
+        ]);
+        $wp_customize->add_section('section-team', [
+            'panel'         => 'panel-d',
+            'title'         => __("Leader"),
+            'description'   => __("Modifiez le team leader à votre guise")
+        ]);
+        $wp_customize->add_setting('setting-team-a', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control('control-team-a', [
+            'section'       => 'section-team',
+            'settings'      => 'setting-team-a',
+            'label'         => __("Modifiez le nom de votre leader"),
+            // 'description'   => __('Personnalisez le texte du paragraphe'),
+            'type'          => 'textarea'
+        ]);
+        $wp_customize->add_setting('setting-team-b', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control('control-team-b', [
+            'section'       => 'section-team',
+            'settings'      => 'setting-team-b',
+            'label'         => __("Modifiez le job de votre leader"),
+            // 'description'   => __('Personnalisez le texte du paragraphe'),
+            'type'          => 'textarea'
+        ]);
+        $wp_customize->add_setting('setting-image-team', [
+            'type'          => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'img-device',
+                array(
+                    'label'      => __('Upload dans la partie team leader', 'labs'),
+                    'section'    => 'section-team',
+                    'settings'   => 'setting-image-team',
+                    // 'context'    => 'your_setting_context'
+                )
+            )
+        );
     }
 }
 add_action('customize_register', [Customizer::class, 'add_customization']);

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Request;
 use App\Http\Models\Mail;
+use App\Http\Middleware\CheckPermission;
 
 class MailController
 {
     public static function send_mail()
     {
+        CheckPermission::check('create_email');
         //On verifie si le formulaire est bien authentique
         if (!wp_verify_nonce($_POST['_wpnonce'], 'send-mail')) {
             return;
@@ -62,6 +64,7 @@ class MailController
     }
     public static function delete()
     {
+        CheckPermission::check('delete-mail');
         $id = $_POST['id'];
         if (Mail::delete($id)) {
             $_SESSION['notice'] = [

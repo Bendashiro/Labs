@@ -20,9 +20,26 @@ body {
 img {
 	max-width: 100%;
 }
-.team-section img {
+#team img {
 	height: 448px;
 	width: 360px;
+}
+#project img {
+	height: 490px;
+	width: 240px;
+}
+#gallery-1 img{
+	border: none;
+	height: 113px;
+	width: 115px;
+}
+.card-img img{
+	height: 260px;
+	width: 360px;
+}
+.post-thumbnail img{
+	height: 270px;
+	width: 750px;
 }
 
 h1,

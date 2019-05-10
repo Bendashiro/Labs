@@ -3,7 +3,7 @@
 namespace App\Features\Pages;
 
 use App\Http\Models\Mail;
-use App\Http\Controllers\MailController;
+use App\Http\Middleware\CheckPermission;
 
 class ReceiveMail
 {
@@ -25,6 +25,7 @@ class ReceiveMail
     }
     public static function render()
     {
+        CheckPermission::check('show-mail');
         if ($_GET['action'] == 'show') {
             $id = $_GET['id'];
             $mail = Mail::find($id);

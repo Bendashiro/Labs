@@ -59,4 +59,4 @@ register_activation_hook(__DIR__ . '/services.php', [Database::class, 'init']);
 add_action('admin_action_mail-delete', [MailController::class, 'delete']);
 add_action('admin_action_news-delete', [NewsController::class, 'delete']);
 //Roles
-register_activation_hook(__DIR__ . '/services.php', [Role::class, 'init']);
+register_activation_hook(__DIR__ . '/services.php', [Role::class, 'config_role']);

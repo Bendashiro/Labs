@@ -48,7 +48,7 @@ get_template_part('templates/banner');
         <?php if ($count % 3 === 2) : ?>
         </div>
       <?php endif;
-    $count++
+    $count++;
     ?>
     <?php endwhile; ?>
     <div class="page-pagination">
@@ -62,7 +62,7 @@ get_template_part('templates/banner');
         'prev_text' => __('« Précédent' . '<br>'),
         'next_text' => __('<br>' . 'Suivant »'),
       ]);
-      // wp_reset_postdata();
+      wp_reset_postdata();
       ?>
     </div>
   </div>
@@ -70,7 +70,7 @@ get_template_part('templates/banner');
 
 
 <!-- features section -->
-<div class="team-section spad">
+<div class="team-section spad" id="project">
   <div class="overlay"></div>
   <div class="container">
     <div class="section-title">
@@ -99,7 +99,7 @@ get_template_part('templates/banner');
               <p><?php the_content(); ?></p>
             </div>
             <div class="icon">
-              <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon', true) ?>"></i>
+              <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon_projects', true) ?>"></i>
             </div>
           </div>
         <?php
@@ -126,7 +126,7 @@ get_template_part('templates/banner');
           <!-- feature item -->
           <div class="icon-box light">
             <div class="icon">
-              <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon', true) ?>"></i>
+              <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon_projects', true) ?>"></i>
             </div>
             <div class="service-text">
               <h2><?php the_title(); ?></h2>
@@ -154,7 +154,7 @@ get_template_part('templates/banner');
       <?php
       $args = [
         'post_type' => 'Services',
-        'order' => 'DESC',
+        'order' => 'ASC',
         'posts_per_page' => '3',
       ];
       $queryD = new WP_Query($args);

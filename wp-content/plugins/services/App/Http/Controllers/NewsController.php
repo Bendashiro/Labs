@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Request;
 use App\Http\Models\News;
+use App\Http\Middleware\CheckPermission;
 
 class NewsController
 {
     public static function send_news()
     {
+        CheckPermission::check('send-news');
         //On verifie si le formulaire est bien authentique
         if (!wp_verify_nonce($_POST['_wpnonce'], 'send-news')) {
             return;
@@ -44,6 +46,7 @@ class NewsController
     }
     public static function delete()
     {
+        CheckPermission::check('delete-news');
         $id = $_POST['id'];
         if (News::delete($id)) {
             $_SESSION['notice'] = [
