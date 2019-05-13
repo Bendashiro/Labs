@@ -50,6 +50,17 @@ class TestimonialPostTypes
                 'menu_icon' => 'dashicons-id-alt',
                 // On choisis dans supports ce qu'on veut rendre accessible dans notre post-type, un titre,un textarea,un extrait et la possibilité de rajouter une image mise en avant.
                 'supports' =>  ['title', 'editor', 'excerpt', 'thumbnail'],
+                'capabilities' => [
+                    'publish_posts' => 'publish_testimonials',
+                    'edit_posts' => 'edit_testimonials',
+                    'edit_others_posts' => 'edit_others_testimonials',
+                    'delete_posts' => 'delete_testimonials',
+                    'delete_others_posts' => 'delete_others_testimonials',
+                    'read_private_posts' => 'read_private_testimonials',
+                    'edit_post' => 'edit_testimonial',
+                    'delete_post' => 'delete_testimonial',
+                    'read_post' => 'read_testimonial'
+                ],
             ]
         );
     }

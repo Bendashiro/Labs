@@ -50,6 +50,17 @@ class ProjectsPostTypes
                 'menu_icon' => 'dashicons-clipboard',
                 // On choisis dans supports ce qu'on veut rendre accessible dans notre post-type, un titre,un textarea,un extrait et la possibilité de rajouter une image mise en avant.
                 'supports' =>  ['title', 'editor', 'thumbnail'],
+                'capabilities' => [
+                    'publish_posts' => 'publish_projects',
+                    'edit_posts' => 'edit_projects',
+                    'edit_others_posts' => 'edit_others_projects',
+                    'delete_posts' => 'delete_projects',
+                    'delete_others_posts' => 'delete_others_projects',
+                    'read_private_posts' => 'read_private_projects',
+                    'edit_post' => 'edit_project',
+                    'delete_post' => 'delete_project',
+                    'read_post' => 'read_project'
+                ],
             ]
         );
     }

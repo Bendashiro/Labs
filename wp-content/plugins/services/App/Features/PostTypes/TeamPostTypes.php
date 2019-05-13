@@ -31,7 +31,7 @@ class TeamPostTypes
                     'not_found_in_trash' => ('Pas de Team dans la corbeille.'),
                     'all_items' => __('Toutes les Team'),
                     'archives' => __('Team archivées'),
-                    'filter_items_list' => __('Filtre de service'),
+                    'filter_items_list' => __('Filtre de team'),
                     'items_list_navigation' => __('Navigation de team'),
                     'items_list' => __('Liste team'),
                     'item_published' => __('Team publiée.'),
@@ -50,6 +50,17 @@ class TeamPostTypes
                 'menu_icon' => 'dashicons-groups',
                 // On choisis dans supports ce qu'on veut rendre accessible dans notre post-type, un titre,un textarea,un extrait et la possibilité de rajouter une image mise en avant.
                 'supports' =>  ['title', 'editor', 'thumbnail'],
+                'capabilities' => [
+                    'publish_posts' => 'publish_teams',
+                    'edit_posts' => 'edit_teams',
+                    'edit_others_posts' => 'edit_others_teams',
+                    'delete_posts' => 'delete_teams',
+                    'delete_others_posts' => 'delete_others_teams',
+                    'read_private_posts' => 'read_private_teams',
+                    'edit_post' => 'edit_team',
+                    'delete_post' => 'delete_team',
+                    'read_post' => 'read_team'
+                ],
             ]
         );
     }

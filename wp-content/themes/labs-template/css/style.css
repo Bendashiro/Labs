@@ -41,6 +41,10 @@ img {
 	height: 270px;
 	width: 750px;
 }
+div.logo img{
+	height: 32px;
+	width: 111px;
+}
 
 h1,
 h2,
@@ -1198,8 +1202,9 @@ ul {
 }
 
 .widget-item div.tagcloud a {
+	font-size: 18px !important;
 	color: #6a23b5;
-	margin-bottom: 0;
+	margin-bottom: 10px;
 }
 .widget-item ul {
 	list-style: none;

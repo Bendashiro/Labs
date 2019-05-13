@@ -84,28 +84,32 @@ get_template_part('templates/banner');
     <div class="row">
       <div class="col-md-4 col-sm-4 features">
         <?php
+        $i = 0;
         $args = [
           'post_type' => 'Projects',
           'orderby' => 'rand',
-          'posts_per_page' => '3',
+          'posts_per_page' => '6',
         ];
         $queryB = new WP_Query($args);
         while ($queryB->have_posts()) : $queryB->the_post();
           ?>
           <!-- feature item -->
-          <div class="icon-box light left">
-            <div class="service-text">
-              <h2><?php the_title(); ?></h2>
-              <p><?php the_content(); ?></p>
+          <?php if ($i < 3) : ?>
+            <div class="icon-box light left">
+              <div class="service-text">
+                <h2><?php the_title(); ?></h2>
+                <p><?php the_content(); ?></p>
+              </div>
+              <div class="icon">
+                <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon_projects', true) ?>"></i>
+              </div>
             </div>
-            <div class="icon">
-              <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon_projects', true) ?>"></i>
-            </div>
-          </div>
-        <?php
-      endwhile;
-      wp_reset_postdata();
-      ?>
+          <?php endif; ?>
+          <?php
+          $i++;
+        endwhile;
+        wp_reset_postdata();
+        ?>
       </div>
       <!-- Devices -->
       <div class="col-md-4 col-sm-4 devices">
@@ -115,24 +119,30 @@ get_template_part('templates/banner');
       </div>
       <div class="col-md-4 col-sm-4 features">
         <?php
-        $args = [
-          'post_type' => 'Projects',
-          'orderby' => 'rand',
-          'posts_per_page' => '3',
-        ];
-        $queryC = new WP_Query($args);
-        while ($queryC->have_posts()) : $queryC->the_post();
+        $i = 0;
+        // $args = [
+        //   'post_type' => 'Projects',
+        //   'orderby' => 'rand',
+        //   'posts_per_page' => '3',
+        // ];
+        // $queryC = new WP_Query($args);
+        while ($queryB->have_posts()) : $queryB->the_post();
           ?>
           <!-- feature item -->
-          <div class="icon-box light">
-            <div class="icon">
-              <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon_projects', true) ?>"></i>
+          <?php if ($i >= 3) : ?>
+            <div class="icon-box light">
+              <div class="icon">
+                <i class="<?= get_post_meta(get_the_ID(), 'key_selected_icon_projects', true) ?>"></i>
+              </div>
+              <div class="service-text">
+                <h2><?php the_title(); ?></h2>
+                <p><?php the_content(); ?></p>
+              </div>
             </div>
-            <div class="service-text">
-              <h2><?php the_title(); ?></h2>
-              <p><?php the_content(); ?></p>
-            </div>
-          </div>
+          <?php endif;
+        $i++;
+        ?>
+
         <?php
       endwhile;
       wp_reset_postdata();
@@ -153,8 +163,8 @@ get_template_part('templates/banner');
     <div class="row">
       <?php
       $args = [
-        'post_type' => 'Services',
-        'order' => 'ASC',
+        'post_type' => 'Projects',
+        'order' => 'DESC',
         'posts_per_page' => '3',
       ];
       $queryD = new WP_Query($args);
@@ -164,7 +174,7 @@ get_template_part('templates/banner');
         <div class="col-md-4 col-sm-6">
           <div class="sv-card">
             <div class="card-img">
-              <img src="<?= the_post_thumbnail(); ?>" alt="">
+              <?php the_post_thumbnail(); ?>
             </div>
             <div class="card-text">
               <h2><?php the_title(); ?></h2>
@@ -180,7 +190,6 @@ get_template_part('templates/banner');
   </div>
 </div>
 <!-- services card section end-->
-
 <?php
 
 get_template_part('templates/newsletter');

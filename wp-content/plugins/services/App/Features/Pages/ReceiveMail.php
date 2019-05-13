@@ -25,7 +25,6 @@ class ReceiveMail
     }
     public static function render()
     {
-        CheckPermission::check('show-mail');
         if ($_GET['action'] == 'show') {
             $id = $_GET['id'];
             $mail = Mail::find($id);

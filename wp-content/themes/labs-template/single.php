@@ -23,6 +23,7 @@ get_template_part('templates/banner')
                         <div class="post-content">
                             <h2 class="post-title"><?= the_title(); ?></h2>
                             <div class="post-meta">
+                                <a href=""><?php the_author(); ?></a>
                                 <?php
                                 $tags = get_the_tags();
                                 foreach ($tags as $tag) {
@@ -31,7 +32,6 @@ get_template_part('templates/banner')
                                 <?php
                             }
                             ?>
-                                </a>
                                 <a href=""><?= get_comments_number() ?> Comments</a>
                             </div>
                             <p><?= the_content() ?></p>
@@ -69,7 +69,8 @@ get_template_part('templates/banner')
                         </ul>
                     </div>
                     <?php
-                    get_template_part('templates/comment');
+                    $comment = get_template_part('templates/comment');
+                    wp_allow_comment($comment);
                     ?>
                 </div>
             </div>

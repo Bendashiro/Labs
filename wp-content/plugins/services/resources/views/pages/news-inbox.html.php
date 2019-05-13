@@ -6,7 +6,7 @@
                     <div class="inside">
                         <strong>client :</strong>
                         <?= $new->email; ?>
-                        <?php if (current_user_can('delete-news')) : ?>
+                        <?php if ('delete-news') : ?>
                             <form action="<?php get_site_url(); ?>?action=news-delete" method="post">
                                 <input type="hidden" name="id" value="<?= $new->id ?>">
                                 <button type="submit" class="button">supprimer</button>

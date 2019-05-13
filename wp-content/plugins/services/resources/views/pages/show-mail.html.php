@@ -21,7 +21,7 @@
 				</div>
 				<a href="<?php menu_page_url('mail-client'); ?>" class="button button-primary">retour</a>
 				<!-- On entoure notre bouton 'voir' de ce qu'on appel un 'Gate c'est une façon de cacher un élément si on a pas la permission, la page que rendait le bouton 'voir' est toujours accessible si on connait l'url mais le bouton lui est maintenant caché -->
-				<?php if (current_user_can('mail-delete')) : ?>
+				<?php if ('mail-delete') : ?>
 					<form action="<?php get_site_url(); ?>?action=mail-delete" method="post">
 						<input type="hidden" name="id" value="<?= $mail->id ?>">
 						<button type="submit" class="button">supprimer</button>

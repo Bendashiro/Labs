@@ -4,7 +4,7 @@ $args = [
 	'post_type' => 'post',
 	'posts_per_page' => '3',
 	'paged' => $paged,
-	'order' => 'ASC'
+	'order' => 'DESC'
 ];
 
 $query = new WP_Query($args);
@@ -32,6 +32,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 						<div class="post-content">
 							<h2 class="post-title"><?= the_title(); ?></h2>
 							<div class="post-meta">
+								<a href=""><?php the_author(); ?></a>
 								<?php
 								$tags = get_the_tags();
 								foreach ($tags as $tag) {
@@ -40,7 +41,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 								<?php
 							}
 							?>
-								<a href=""><?php get_comment_count(); ?></a>
+									<a href=""><?= get_comments_number() >= 1 ? get_comments_number() . ' Comments' : get_comments_number() . ' Comment' ?></a>
 							</div>
 							<p><?php the_excerpt(); ?></p>
 							<a href="<?= the_permalink(get_the_ID()) ?>" class="read-more">Read More</a>

@@ -50,6 +50,17 @@ class ServicesPostTypes
                 'menu_icon' => 'dashicons-media-spreadsheet',
                 // On choisis dans supports ce qu'on veut rendre accessible dans notre post-type, un titre,un textarea,un extrait et la possibilité de rajouter une image mise en avant.
                 'supports' =>  ['title', 'editor', 'thumbnail'],
+                'capabilities' => [
+                    'publish_posts' => 'publish_services',
+                    'edit_posts' => 'edit_services',
+                    'edit_others_posts' => 'edit_others_services',
+                    'delete_posts' => 'delete_services',
+                    'delete_others_posts' => 'delete_others_services',
+                    'read_private_posts' => 'read_private_services',
+                    'edit_post' => 'edit_service',
+                    'delete_post' => 'delete_service',
+                    'read_post' => 'read_service'
+                ],
             ]
         );
     }
